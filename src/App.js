@@ -8,13 +8,13 @@ import Footer from './components/Footer';
 
 const App = () => {
 	return (
-		<div className="App">
-			<Route path='/' component={Header}/>
+		<>
+			<Route exact path='/' component={Header}/>
 			<Route exact path='/' component={Landing}/>
 			<Route path='/signin' component={SignIn}/>
 			<Route path='/signup' component={SignUp}/>
 			<Route path='/' component={Footer}/>
-		</div>
+		</>
 	);
 };
 
