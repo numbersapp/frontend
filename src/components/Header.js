@@ -39,7 +39,7 @@ const HeaderContainer = styled.div`
 const Header = () => {
     return (
         <HeaderContainer>
-            <img src={logo} alt='numbers logo'/>
+            <Link to='/'><img src={logo} alt='numbers logo'/></Link>
 			<Link to='/signin'><button>Sign In</button></Link>
         </HeaderContainer>
     );
