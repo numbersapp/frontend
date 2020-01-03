@@ -10,6 +10,7 @@ import PageNotFound from './components/PageNotFound';
 import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './components/Dashboard';
+import Property from './components/Property';
 import RentalForm from './components/RentalForm';
 
 import ComingSoon from './components/ComingSoon';
@@ -25,7 +26,8 @@ const App = () => {
 			<Route path='/pagenotfound' component={PageNotFound}/>
 			
 			<PrivateRoute path='/dashboard' component={Dashboard}/>
-			<PrivateRoute path='/rental' component={RentalForm}/>
+			<PrivateRoute path='/rental/:id' component={Property}/>
+			<PrivateRoute exact path='/rental' component={RentalForm}/>
 			
 			<PrivateRoute path='/comingsoon' component={ComingSoon}/>
 			

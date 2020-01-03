@@ -51,7 +51,7 @@ const Landing = () => {
     return (
         <LandingContainer>
             <h1>Numbers is the #1 real estate investment analyzer</h1>
-            <h2>Making sure the numbers work and closing the deal</h2>
+            <h2>Making sure the numbers work and helping you close good deals</h2>
 			<Link to='/signin'><button>Get Started</button></Link>
         </LandingContainer>
     );

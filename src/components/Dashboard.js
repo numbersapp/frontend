@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {axiosWithAuth} from '../utils/axiosWithAuth';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const DashboardContainer = styled.div`
@@ -72,9 +73,11 @@ const DashboardContainer = styled.div`
 `
 
 const Dashboard = props => {
+    const [properties, setProperties] = useState([]);
+    
     useEffect(() => {
         axiosWithAuth().get('https://property-analysis.herokuapp.com/property')
-            .then(response => console.log(response))
+            .then(response => setProperties(response.data))
             .catch(error => console.log(error));
     }, []);
     
@@ -84,7 +87,18 @@ const Dashboard = props => {
             <h2>Rentals</h2>
             <p>Properties you plan to buy and hold for long-term cash flow</p>
             <div className='property-container'>
-                
+                {properties.map(item => {
+                    return (
+                        <Link key={item.id} to={`/rental/${item.id}`}>
+                            <button>
+                                <p>{item.title}</p>
+                                <p>{item.street_address}</p>
+                                <p>{item.city}, {item.state} {item.zipcode}</p>
+                            </button>
+                        </Link>
+                    );
+                })}
+
                 <button>
                     <p>123 Blueberry Farms Road,</p>
                     <p>New Jersey, NJ 12345</p>
