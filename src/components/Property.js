@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {axiosWithAuth} from '../utils/axiosWithAuth'
+import {axiosWithAuth} from './utils/axiosWithAuth'
 import styled from 'styled-components';
 
 const PropertyContainer = styled.div`
@@ -74,7 +74,7 @@ const Property = props => {
         axiosWithAuth().get(`https://property-analysis.herokuapp.com/property/${props.match.params.id}`)
             .then(response => setInput(response.data))
             .catch(error => console.log(error));
-    }, []);
+    }, [props.match.params.id]);
 
     const onClick = event => {
         event.preventDefault();
