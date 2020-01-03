@@ -103,7 +103,7 @@ const SignIn = props => {
 
     const onSubmit = event => {
         event.preventDefault();
-        axios.post('https://property-analysis.herokuapp.com/auth/login', input)
+        axios.post('/auth/login', input)
             .then(response => {
                 setInput({email: '', username: '', password: ''});
                 localStorage.setItem('token', response.data.token);

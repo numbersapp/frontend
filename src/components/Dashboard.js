@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const DashboardContainer = styled.div`
-
     width: 1024px;
     margin: 0 auto;
     margin-top: 64px;
@@ -76,7 +75,7 @@ const Dashboard = props => {
     const [properties, setProperties] = useState([]);
     
     useEffect(() => {
-        axiosWithAuth().get('https://property-analysis.herokuapp.com/property')
+        axiosWithAuth().get('/property')
             .then(response => setProperties(response.data))
             .catch(error => console.log(error));
     }, []);
