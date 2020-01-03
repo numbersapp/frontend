@@ -233,6 +233,49 @@ const RentalFormContainer = styled.form`
             }
         }
     }
+
+    .report {
+        display: flex;
+        flex-direction: column;
+    
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4a4a4a;
+        }
+
+        .description {
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #898989;
+        }
+
+        .buttons {
+            margin-top: 24px;
+            display: flex;
+            justify-content: space-evenly;
+            
+            button {
+                padding: 8px 64px;
+                border: none;
+                border-radius: 3px;
+                outline: none;
+                background: linear-gradient(to right, #ff5e62, #ff9966);
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                font-family: 'Quicksand', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                color: whitesmoke;
+                cursor: pointer;
+                transition: 0.25s;
+
+                :hover {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
 `
 
 const RentalForm = props => {
@@ -319,7 +362,7 @@ const RentalForm = props => {
 
             {section.purchase && <div className='purchase'>
                 <h2>Purchase</h2>
-                <p className='description'>Enter details about the purchase of the property, and the loan if you're not paying cash.</p>
+                <p className='description'>Enter details about the purchase of the property, and the loan if you're not paying cash</p>
 
                 <label htmlFor='purchase_price'>Purchase Price</label>
                 <input name='purchase_price' type='number' value={input.purchase_price} onChange={onChange}/>
@@ -398,8 +441,15 @@ const RentalForm = props => {
 
             {section.report && <div className='report'>
                 <h2>Report</h2>
-                <button onClick={() => setSection({expenses: true, report: false})}>Go Back and Edit</button>
-                <button onClick={() => props.history.push('/dashboard')}>Back to Dashboard</button>
+                <p className='description'>The purchase breakdown, cash flow, and investment returns for this property</p>
+
+                <p>Title</p>
+                <p>Address</p>
+
+                <div className='buttons'>
+                    <button onClick={() => setSection({expenses: true, report: false})}>Back and Edit</button>
+                    <button onClick={() => props.history.push('/dashboard')}>Go to Dashboard</button>
+                </div>
             </div>}
         </RentalFormContainer>
     );
