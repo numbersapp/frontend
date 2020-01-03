@@ -27,7 +27,7 @@ const PageNotFoundContainer = styled.div`
             background: linear-gradient(to right, #ff5e62, #ff9966);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             font-family: 'Quicksand', sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
             color: whitesmoke;
             cursor: pointer;

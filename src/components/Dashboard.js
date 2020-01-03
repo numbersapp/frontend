@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import axiosWithAuth from '../utils/AxiosWithAuth';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
 import styled from 'styled-components';
 
 const DashboardContainer = styled.div`
@@ -72,8 +72,8 @@ const DashboardContainer = styled.div`
 `
 
 const Dashboard = props => {
-    useEffect(() =>  {
-        axiosWithAuth.get('https://property-analysis.herokuapp.com/property/')
+    useEffect(() => {
+        axiosWithAuth().get('https://property-analysis.herokuapp.com/property')
             .then(response => console.log(response))
             .catch(error => console.log(error));
     }, []);

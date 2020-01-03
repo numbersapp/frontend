@@ -4,6 +4,235 @@ import styled from 'styled-components';
 const RentalFormContainer = styled.form`
     width: 1024px;
     margin: 0 auto;
+    margin-top: 64px;
+    margin-bottom: 64px;
+
+    h1 {
+        margin-bottom: 32px;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #4a4a4a
+    }
+
+    .propertyInfo {
+        display: flex;
+        flex-direction: column;
+    
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4a4a4a;
+        }
+
+        .description {
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #898989;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #4a4a4a;
+        }
+
+        input {
+            margin-bottom: 8px;
+            padding: 8px;
+            background: white;
+            border: 1px solid #969696;
+            border-radius: 3px;
+            outline: none;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+
+            ::placeholder {
+                color: #969696;
+            }
+        }
+
+        .buttons {
+            margin-top: 24px;
+            display: flex;
+            justify-content: space-evenly;
+            
+            button {
+                padding: 8px 64px;
+                border: none;
+                border-radius: 3px;
+                outline: none;
+                background: linear-gradient(to right, #ff5e62, #ff9966);
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                font-family: 'Quicksand', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                color: whitesmoke;
+                cursor: pointer;
+                transition: 0.25s;
+
+                :hover {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+    .purchase {
+        display: flex;
+        flex-direction: column;
+    
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4a4a4a;
+        }
+
+        .description {
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #898989;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #4a4a4a;
+        }
+
+        input {
+            margin-bottom: 8px;
+            padding: 8px;
+            background: white;
+            border: 1px solid #969696;
+            border-radius: 3px;
+            outline: none;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+
+            ::placeholder {
+                color: #969696;
+            }
+        }
+
+        .use_financing {
+            margin: 8px 0;
+            display: flex;
+
+            label {
+                margin-right: 8px;
+            }
+        }
+
+        select {
+            margin-bottom: 8px;
+            padding: 8px;
+            background: white;
+            border: 1px solid #969696;
+            border-radius: 3px;
+            outline: none;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+
+            ::placeholder {
+                color: #969696;
+            }
+        }
+
+        .buttons {
+            margin-top: 24px;
+            display: flex;
+            justify-content: space-evenly;
+            
+            button {
+                padding: 8px 64px;
+                border: none;
+                border-radius: 3px;
+                outline: none;
+                background: linear-gradient(to right, #ff5e62, #ff9966);
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                font-family: 'Quicksand', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                color: whitesmoke;
+                cursor: pointer;
+                transition: 0.25s;
+
+                :hover {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+    .expenses {
+        display: flex;
+        flex-direction: column;
+    
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4a4a4a;
+        }
+
+        .description {
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #898989;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #4a4a4a;
+        }
+
+        input {
+            margin-bottom: 8px;
+            padding: 8px;
+            background: white;
+            border: 1px solid #969696;
+            border-radius: 3px;
+            outline: none;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+
+            ::placeholder {
+                color: #969696;
+            }
+        }
+
+        .buttons {
+            margin-top: 24px;
+            display: flex;
+            justify-content: space-evenly;
+            
+            button {
+                padding: 8px 64px;
+                border: none;
+                border-radius: 3px;
+                outline: none;
+                background: linear-gradient(to right, #ff5e62, #ff9966);
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                font-family: 'Quicksand', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                color: whitesmoke;
+                cursor: pointer;
+                transition: 0.25s;
+
+                :hover {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
 `
 
 const RentalForm = props => {
@@ -55,12 +284,17 @@ const RentalForm = props => {
     
 
     return(
-        <RentalFormContainer>
+        <RentalFormContainer autoComplete='off' spellCheck='false'>
+            <h1>Rental</h1>
             {section.propertyInfo && <div className='propertyInfo'>
                 <h2>Property Info</h2>
+                <p className='description'>Enter basic information about the property</p>
 
                 <label htmlFor='title'>Title</label>
                 <input name='title' type='text' value={input.title} onChange={onChange}/>
+
+                <label htmlFor='mls_no'>MLS Number</label>
+                <input name='mls_no' type='text' value={input.mls_no} onChange={onChange}/>
 
                 <label htmlFor='description'>Description</label>
                 <input name='description' type='text' value={input.description} onChange={onChange}/>
@@ -76,16 +310,16 @@ const RentalForm = props => {
 
                 <label htmlFor='zipcode'>Zipcode</label>
                 <input name='zipcode' type='text' value={input.zipcode} onChange={onChange}/>
-
-                <label htmlFor='mls_no'>MLS Number</label>
-                <input name='mls_no' type='text' value={input.mls_no} onChange={onChange}/>
-
-                <button onClick={() => props.history.push('/dashboard')}>Back to Dashboard</button>
-                <button onClick={() => setSection({propertyInfo: false, purchase: true})}>Next</button>
+                
+                <div className='buttons'>
+                    <button onClick={() => props.history.push('/dashboard')}>Back to Dashboard</button>
+                    <button onClick={() => setSection({propertyInfo: false, purchase: true})}>Next</button>
+                </div>
             </div>}
 
             {section.purchase && <div className='purchase'>
                 <h2>Purchase</h2>
+                <p className='description'>Enter details about the purchase of the property, and the loan if you're not paying cash.</p>
 
                 <label htmlFor='purchase_price'>Purchase Price</label>
                 <input name='purchase_price' type='number' value={input.purchase_price} onChange={onChange}/>
@@ -98,9 +332,11 @@ const RentalForm = props => {
 
                 <label htmlFor='closing_costs'>Closing Costs</label>
                 <input name='closing_costs' type='number' value={input.closing_costs} onChange={onChange}/>
-
-                <label htmlFor='use_financing'>Will you be financing?</label>
-                <input name='use_financing' type='checkbox' value={input.use_financing} onChange={() => setInput({...input, use_financing: !input.use_financing})} checked={input.use_financing}/>
+                
+                <div className='use_financing'>
+                    <label htmlFor='use_financing'>Will you be financing?</label>
+                    <input name='use_financing' type='checkbox' value={input.use_financing} onChange={() => setInput({...input, use_financing: !input.use_financing})} checked={input.use_financing}/>
+                </div>
 
                 {input.use_financing && 
                     <>
@@ -120,13 +356,15 @@ const RentalForm = props => {
                         <input name='pmi' type='number' value={input.pmi} onChange={onChange}/>
                     </>
                 }
-
-                <button onClick={() => setSection({propertyInfo: true, purchase: false})}>Previous</button>
-                <button onClick={() => setSection({purchase: false, expenses: true})}>Next</button>
+                <div className='buttons'>
+                    <button onClick={() => setSection({propertyInfo: true, purchase: false})}>Previous</button>
+                    <button onClick={() => setSection({purchase: false, expenses: true})}>Next</button>
+                </div>
             </div>}
 
             {section.expenses && <div className='expenses'>
                 <h2>Expenses</h2>
+                <p className='description'>Enter details about expenses of the property</p>
 
                 <label htmlFor='gross_monthly_rent'>Gross Monthly Rent</label>
                 <input name='gross_monthly_rent' type='number' value={input.gross_monthly_rent} onChange={onChange}/>
@@ -151,9 +389,11 @@ const RentalForm = props => {
 
                 <label htmlFor='sales_expenses'>Sales Expense</label>
                 <input name='sales_expenses' type='number' value={input.sales_expenses} onChange={onChange}/>
-
-                <button onClick={() => setSection({propertyInfo: false, purchase: true})}>Previous</button>
-                <button onClick={() => setSection({expenses: false, report: true})}>Submit</button>
+                
+                <div className='buttons'>
+                    <button onClick={() => setSection({propertyInfo: false, purchase: true})}>Previous</button>
+                    <button onClick={() => setSection({expenses: false, report: true})}>Submit</button>
+                </div>
             </div>}
 
             {section.report && <div className='report'>

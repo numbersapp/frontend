@@ -24,7 +24,7 @@ const SignInContainer = styled.div`
         flex-direction: column;
 
         label {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
             color: #898989;
         }
@@ -38,7 +38,7 @@ const SignInContainer = styled.div`
             border-radius: 3px;
             outline: none;
             font-family: 'Quicksand', sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
 
             ::placeholder {
@@ -47,21 +47,21 @@ const SignInContainer = styled.div`
         }
 
         .error {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
             color: red;
         }
 
         button {
-            height: 34px;
             margin-top: 8px;
             margin-bottom: 8px;
+            padding: 8px;
             border: none;
             border-radius: 3px;
             outline: none;
             background: linear-gradient(to right, #ff5e62, #ff9966);
             font-family: 'Quicksand', sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
             color: whitesmoke;
             cursor: pointer;
