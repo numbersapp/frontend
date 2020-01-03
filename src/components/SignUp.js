@@ -51,6 +51,7 @@ const SignUpContainer = styled.div`
             margin-bottom: 8px;
             border: none;
             border-radius: 3px;
+            outline: none;
             background: linear-gradient(to right, #ff5e62, #ff9966);
             font-family: 'Quicksand', sans-serif;
             font-size: 14px;

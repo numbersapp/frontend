@@ -1,5 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
+import {updateState} from '../../actions/Actions';
+import styled from 'styled-components';
+
+const PropertyInfoContainer = styled.form`
+    width: 1024px;
+    margin: 0 auto;
+    margin-top:  64px;
+    margin-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #4a4a4a;
+    }
+`
 
 const PropertyInfo = props => {
     const [input, setInput] = useState({
@@ -12,17 +29,14 @@ const PropertyInfo = props => {
         description: ''
     });
     
-    useEffect(() => {
-        
-    }, []);
-    
     const goBack = () => {
         props.history.push('/dashboard');
     };
 
     const next = event => {
         event.preventDefault();
-        props.history.push('/create/purchase');
+        console.log(props.propertyInfo);
+        props.history.push('/rental/purchase');
     };
 
     const onChange = event => {
@@ -31,27 +45,39 @@ const PropertyInfo = props => {
 
     const onSubmit = event => {
         event.preventDefault();
+        console.log(props.propertyInfo);
+        props.updateState({input});
+        console.log(props.propertyInfo);
     };
 
     return (
-        <form onSubmit={onSubmit}>
+        <PropertyInfoContainer onSubmit={onSubmit}>
+            <h2>Property Info</h2>
+            
             <label htmlFor='title'>Title</label>
             <input name='title' value={input.title} onChange={onChange}/>
-            {/* <label>Street Address</label>
+            
+            <label>Street Address</label>
             <input/>
+            
             <label>City</label>
             <input/>
+            
             <label>State</label>
             <input/>
+            
             <label>Zipcode</label>
             <input/>
+            
             <label>MLS Number</label>
             <input/>
+            
             <label>Description</label>
-            <input/> */}
-            <button onClick={goBack}>Go Back</button>
+            <input/>
+            
+            <button type='button' onClick={goBack}>Go Back</button>
             <button type='submit' onClick={next}>Next</button>
-        </form>
+        </PropertyInfoContainer>
     );
 };
 
@@ -61,4 +87,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(PropertyInfo);
+export default connect(mapStateToProps, {updateState})(PropertyInfo);

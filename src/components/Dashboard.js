@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import axiosWithAuth from '../utils/AxiosWithAuth';
 import styled from 'styled-components';
 
 const DashboardContainer = styled.div`
@@ -71,50 +72,59 @@ const DashboardContainer = styled.div`
 `
 
 const Dashboard = props => {
-    const onClick = () => {
-        props.history.push('/create/propertyinfo');
-    };
+    useEffect(() =>  {
+        axiosWithAuth.get('https://property-analysis.herokuapp.com/property/')
+            .then(response => console.log(response))
+            .catch(error => console.log(error));
+    }, []);
     
     return (
         <DashboardContainer>
             <h1>Dashboard</h1>
             <h2>Rentals</h2>
-            <p>Properties you plan to buy and hold for long term cash-flow</p>
+            <p>Properties you plan to buy and hold for long-term cash flow</p>
             <div className='property-container'>
-                <button onClick={onClick}>
+                
+                <button>
                     <p>123 Blueberry Farms Road,</p>
-                    <p>New Jersey, NJ 08902</p>
+                    <p>New Jersey, NJ 12345</p>
                 </button>
-                <button onClick={onClick}>
+                <button>
                     <p>House Down the Street</p>
                 </button>
-                <button onClick={onClick}>
+                <button>
                     <p>123 Blueberry Farms Road,</p>
-                    <p>New Jersey, NJ 08902</p>
+                    <p>New Jersey, NJ 12345</p>
                 </button>
-                <button onClick={onClick}>
+                <button>
                     <p>123 Blueberry Farms Road,</p>
-                    <p>New Jersey, NJ 08902</p>
+                    <p>New Jersey, NJ 12345</p>
                 </button>
-                <button className='analyze-new-property' onClick={onClick}>+ Analyze New Property</button>
+                <button className='analyze-new-property' onClick={() => props.history.push('/rental/propertyinfo')}>+ Analyze New Property</button>
             </div>
             
             <h2>BRRRRs</h2>
             <p>Properties you plan to buy, rehab, rent, refinance, and repeat</p>
             <div className='property-container'>
-                <button className='analyze-new-property' onClick={onClick}>+ Analyze New Property</button>
+                <button className='analyze-new-property' onClick={() => props.history.push('/comingsoon')}>+ Analyze New Property</button>
             </div>
 
             <h2>Fix and Flips</h2>
             <p>Properties you plan to fix and flip for a profit</p>
             <div className='property-container'>
-                <button className='analyze-new-property' onClick={onClick}>+ Analyze New Property</button>
+                <button className='analyze-new-property' onClick={() => props.history.push('/comingsoon')}>+ Analyze New Property</button>
             </div>
 
             <h2>Wholesales</h2>
             <p>Properties you plan to wholesale</p>
             <div className='property-container'>
-                <button className='analyze-new-property' onClick={onClick}>+ Analyze New Property</button>
+                <button className='analyze-new-property' onClick={() => props.history.push('/comingsoon')}>+ Analyze New Property</button>
+            </div>
+
+            <h2>Mortgage Calculator</h2>
+            <p>Calculate the ammortization of a loan</p>
+            <div className='property-container'>
+                <button className='analyze-new-property' onClick={() => props.history.push('/comingsoon')}>+ Analyze New Property</button>
             </div>
         </DashboardContainer>
     );

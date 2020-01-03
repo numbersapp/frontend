@@ -4,11 +4,15 @@ import Header from './components/Header';
 import Landing from './components/Landing';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+
+import PageNotFound from './components/PageNotFound';
+
 import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './components/Dashboard';
-import PropertyInfo from './components/createform/PropertyInfo';
-import Purchase from './components/createform/Purchase';
+import RentalForm from './components/RentalForm';
+
+import ComingSoon from './components/ComingSoon';
 
 const App = () => {
 	return (
@@ -18,9 +22,12 @@ const App = () => {
 			<Route path='/signin' component={SignIn}/>
 			<Route path='/signup' component={SignUp}/>
 			
+			<Route path='/pagenotfound' component={PageNotFound}/>
+			
 			<PrivateRoute path='/dashboard' component={Dashboard}/>
-			<PrivateRoute path='/create/propertyinfo' component={PropertyInfo}/>
-			<PrivateRoute path='/create/purchase' component={Purchase}/>
+			<PrivateRoute path='/rental' component={RentalForm}/>
+			
+			<PrivateRoute path='/comingsoon' component={ComingSoon}/>
 			
 			<Route path='/' component={Footer}/>
 		</>
