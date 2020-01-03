@@ -75,7 +75,7 @@ const Dashboard = props => {
     const [properties, setProperties] = useState([]);
     
     useEffect(() => {
-        axiosWithAuth().get('/property')
+        axiosWithAuth().get('https://property-analysis.herokuapp.com/property')
             .then(response => setProperties(response.data))
             .catch(error => console.log(error));
     }, []);
@@ -113,7 +113,7 @@ const Dashboard = props => {
                     <p>123 Blueberry Farms Road,</p>
                     <p>New Jersey, NJ 12345</p>
                 </button>
-                <button className='analyze-new-property' onClick={() => props.history.push('/rental/propertyinfo')}>+ Analyze New Property</button>
+                <button className='analyze-new-property' onClick={() => props.history.push('/rental')}>+ Analyze New Property</button>
             </div>
             
             <h2>BRRRRs</h2>

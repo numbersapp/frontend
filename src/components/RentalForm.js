@@ -347,7 +347,7 @@ const RentalForm = props => {
 
     const onSubmit = event => {
         event.preventDefault();
-        axiosWithAuth().post('/property', input)
+        axiosWithAuth().post('https://property-analysis.herokuapp.com/property', input)
             .then(response => setSection({expenses: false, report: true}))
             .catch(error => console.log(error, input));
     };

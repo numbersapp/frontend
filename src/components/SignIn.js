@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
 import styled from 'styled-components';
 
 const SignInContainer = styled.div`
@@ -103,7 +103,7 @@ const SignIn = props => {
 
     const onSubmit = event => {
         event.preventDefault();
-        axios.post('/auth/login', input)
+        axiosWithAuth().post('https://property-analysis.herokuapp.com/auth/login', input)
             .then(response => {
                 setInput({email: '', username: '', password: ''});
                 localStorage.setItem('token', response.data.token);

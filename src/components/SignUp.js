@@ -80,7 +80,7 @@ const SignUp = props => {
 
     const onSubmit = event => {
         event.preventDefault();
-        axios.post('/register', input)
+        axios.post('https://property-analysis.herokuapp.com/register', input)
             .then(response => {
                 setInput({email: '', username: '', password: ''});
                 props.history.push('/signin');

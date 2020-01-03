@@ -71,14 +71,14 @@ const Property = props => {
     const [input, setInput] = useState({});
     
     useEffect(() => {
-        axiosWithAuth().get(`/property/${props.match.params.id}`)
+        axiosWithAuth().get(`https://property-analysis.herokuapp.com/property/${props.match.params.id}`)
             .then(response => setInput(response.data))
             .catch(error => console.log(error));
     }, []);
 
     const onClick = event => {
         event.preventDefault();
-        axiosWithAuth().delete(`/property/${props.match.params.id}`)
+        axiosWithAuth().delete(`https://property-analysis.herokuapp.com/property/${props.match.params.id}`)
             .then(response => props.history.push('/dashboard'))
             .catch(error => console.log(error));
     };
