@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 
 const SignUpContainer = styled.div`
@@ -46,11 +47,11 @@ const SignUpContainer = styled.div`
 
         button {
             height: 34px;
+            margin-top: 8px;
             margin-bottom: 8px;
             border: none;
             border-radius: 3px;
             background: linear-gradient(to right, #ff5e62, #ff9966);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             font-family: 'Quicksand', sans-serif;
             font-size: 14px;
             font-weight: 500;
@@ -59,24 +60,47 @@ const SignUpContainer = styled.div`
             transition: 0.25s;
 
             :hover {
-                box-shadow: none;
+                opacity: 0.9;
             }
         }
     }
 `
 
-const SignUp = () => {
+const SignUp = props => {
+    const [input, setInput] = useState({
+        email: '',
+        username: '',
+        password: ''
+    });
+    
+    const onChange = event => {
+        setInput({...input, [event.target.name]: event.target.value});
+    };
+
+    const onSubmit = event => {
+        event.preventDefault();
+        axios.post('https://property-analysis.herokuapp.com/auth/register', input)
+            .then(response => {
+                setInput({email: '', username: '', password: ''});
+                props.history.push('/signin');
+            })
+            .catch(error => console.log(error));
+    };
+
     return (
         <SignUpContainer>
             <h1>Sign Up</h1>
-            <form autoComplete='off'>
+            <form autoComplete='off' onSubmit={onSubmit} spellCheck='false'>
+                <label htmlFor='email'>Email</label>
+                <input type='email' name='email' placeholder='ex. grant@cardonegroup.com' value={input.email} onChange={onChange}/>
+
                 <label htmlFor='username'>Username</label>
-                <input name='username' placeholder='ex. grantcardone'/>
+                <input type='text' name='username' placeholder='ex. grantcardone' minLength='3' value={input.username} onChange={onChange}/>
                 
                 <label htmlFor='password'>Password</label>
-                <input name='password' placeholder='ex. igotfish'/>
+                <input type='password' name='password' placeholder='ex. igotfish' minLength='5' value={input.password} onChange={onChange}/>
 
-                <button>Submit</button>
+                <button type='submit'>Submit</button>
             </form>
         </SignUpContainer>
     );

@@ -20,6 +20,7 @@ const HeaderContainer = styled.div`
             padding: 8px 64px;
             border: none;
             border-radius: 3px;
+            outline: none;
             background: linear-gradient(to right, #ff5e62, #ff9966);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             font-family: 'Quicksand', sans-serif;
@@ -36,11 +37,15 @@ const HeaderContainer = styled.div`
     }
 `
 
-const Header = () => {
+const Header = props => {
+    const onClick = () => {
+        localStorage.removeItem('token');
+    };
+    
     return (
         <HeaderContainer>
             <Link to='/'><img src={logo} alt='numbers logo'/></Link>
-			<Link to='/signin'><button>Sign In</button></Link>
+            <Link to='/signin'>{localStorage.getItem('token') ? <button onClick={onClick}>Sign Out</button> : <button>Sign In</button>}</Link>
         </HeaderContainer>
     );
 };

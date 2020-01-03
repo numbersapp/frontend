@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 import styled from 'styled-components';
 
 const SignInContainer = styled.div`
@@ -45,13 +46,19 @@ const SignInContainer = styled.div`
             }
         }
 
+        .error {
+            font-size: 14px;
+            font-weight: 500;
+            color: red;
+        }
+
         button {
             height: 34px;
+            margin-top: 8px;
             margin-bottom: 8px;
             border: none;
             border-radius: 3px;
             background: linear-gradient(to right, #ff5e62, #ff9966);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             font-family: 'Quicksand', sans-serif;
             font-size: 14px;
             font-weight: 500;
@@ -60,7 +67,7 @@ const SignInContainer = styled.div`
             transition: 0.25s;
 
             :hover {
-                box-shadow: none;
+                opacity: 0.9;
             }
         }
     }
@@ -81,18 +88,46 @@ const SignInContainer = styled.div`
     }
 `
 
-const SignIn = () => {
+const SignIn = props => {
+    const [input, setInput] = useState({
+        email: '',
+        username: '',
+        password: ''
+    });
+    const [error, setError] = useState('')
+    
+    const onChange = event => {
+        setInput({...input, [event.target.name]: event.target.value});
+    };
+
+    const onSubmit = event => {
+        event.preventDefault();
+        axios.post('https://property-analysis.herokuapp.com/auth/login', input)
+            .then(response => {
+                console.log(response);
+                setInput({email: '', username: '', password: ''});
+                localStorage.setItem('token', response.data.token)
+                props.history.push('/dashboard');
+            })
+            .catch(error => setError(error));
+    };
+   
     return (
         <SignInContainer>
             <h1>Sign In</h1>
-            <form autoComplete='off'>
+            <form autoComplete='off' onSubmit={onSubmit} spellCheck='false'>
+                <label htmlFor='email'>Email</label>
+                <input type='text' name='email' placeholder='ex. grant@cardonegroup.com' value={input.email} onChange={onChange}/>
+
                 <label htmlFor='username'>Username</label>
-                <input name='username' placeholder='ex. grantcardone'/>
+                <input type='text' name='username' placeholder='ex. grantcardone' value={input.username} onChange={onChange}/>
                 
                 <label htmlFor='password'>Password</label>
-                <input name='password' placeholder='ex. igotfish'/>
+                <input type='password' name='password' placeholder='ex. igotfish' value={input.password} onChange={onChange}/>
+                
+                {error && <p className='error'>Invalid credentials</p>}
 
-                <button>Submit</button>
+                <button type='submit'>Submit</button>
             </form>
             <Link to='/signup'><p>Don't have an account? Sign up</p></Link>
         </SignInContainer>
