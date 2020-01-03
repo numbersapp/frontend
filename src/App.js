@@ -7,6 +7,8 @@ import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './components/Dashboard';
+import PropertyInfo from './components/createform/PropertyInfo';
+import Purchase from './components/createform/Purchase';
 
 const App = () => {
 	return (
@@ -17,6 +19,8 @@ const App = () => {
 			<Route path='/signup' component={SignUp}/>
 			
 			<PrivateRoute path='/dashboard' component={Dashboard}/>
+			<PrivateRoute path='/create/propertyinfo' component={PropertyInfo}/>
+			<PrivateRoute path='/create/purchase' component={Purchase}/>
 			
 			<Route path='/' component={Footer}/>
 		</>

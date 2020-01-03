@@ -1,6 +1,6 @@
 const initialState = {
+    user_id: null,
     propertyInfo: {
-        user_id: null,
         title: '',
         street_address: '',
         city: '',
